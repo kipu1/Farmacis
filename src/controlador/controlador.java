@@ -138,8 +138,12 @@ public class controlador {
            
             JOptionPane.showMessageDialog(null, "Ingrese una cantidad","ERROR_MESSAGE" ,JOptionPane.ERROR_MESSAGE);
             validar=false;
+            
         }
-      
+          if(!dato.getCantidadm().getText().matches("[0-9]+")){
+          JOptionPane.showMessageDialog(null, "Ingrese numero positivos","ERROR_MESSAGE" ,JOptionPane.ERROR_MESSAGE);
+            validar=false;
+      }
         if(dato.getCEMEFAR().isSelected()==false && dato.getCOFARMA().isSelected()==false && dato.getEMPSEPHAR().isSelected()==false){
           JOptionPane.showMessageDialog(null, "Elija una distribuidora","ERROR_MESSAGE" ,JOptionPane.ERROR_MESSAGE);
             validar=false;  
@@ -156,9 +160,11 @@ public class controlador {
 //} 
   private void limpiar(){
        dato.getNombrem().setText("");
-      dato.getTipom().getSelectedIndex();
+      dato.getTipom().setSelectedIndex(0);
        dato.getCantidadm().setText("");
-    dato.getDistribuidoram().setSelected(null, true);
+    dato.getDistribuidoram().clearSelection();
+    dato.getPRINCIPAL().setSelected(false);
+    dato.getSECUNDARIA().setSelected(false);
     
      }
    public void cerrar(){
